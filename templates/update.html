@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Contact</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .contact_form {
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact_form h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .contact_form form {
+            display: grid;
+            grid-gap: 10px;
+            margin-top: 15px;
+        }
+
+        label {
+            color: #333;
+            font-weight: bold;
+        }
+
+        .contact_form form {
+            margin-top: 10px;
+            padding-right: 20px;
+        }
+
+        .contact_form {
+            position: relative;
+        }
+
+        input[type="text"], input[type="email"], input[type="tel"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #d3d3d3;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+        
+        input[type="submit"], .return_button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+            max-width: 100px;
+            display: block;
+            font-size: 14px;
+        }
+        
+        input[type="submit"]:hover, .return_button:hover {
+            background-color: #2980b9;
+        }
+
+        .return_button{
+            position: absolute;
+            right: 20px;
+            bottom: 20px;
+            display: inline-flex;
+            text-decoration: none;
+            padding: 10px 35px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="contact_form">
+            <h1>Edit Contact</h1>
+            <form method="post" action="/edit/{{contact[0]}}">
+                <label>Name: <input type="text" name="name" value="{{contact[1]}}" required></label>
+                <label>Phone: <input type="tel" name="phone" value="{{contact[2]}}" required></label>
+                <label>Email: <input type="email" name="email" value="{{contact[3]}}" required></label>
+                <input type="submit" value="Save">
+            </form>
+            <a class="return_button" href="/contacts">Back</a>
+        </div>
+    </div>
+</body>
+</html>
